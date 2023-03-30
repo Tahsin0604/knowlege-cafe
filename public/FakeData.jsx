@@ -33,7 +33,7 @@
     "blogCoverImage":"../src/assets/image/cover-4.jpg",
     "authorImage":"../src/assets/image/user-4.jpg",
     "readTime":7,
-    "publishDate":"2023-03-25"
+    "publishDate":"2022-03-25"
   },
   {
     "id":5,

@@ -12,18 +12,21 @@ import BookmarkContainer from "../BookmarkContainer/BookmarkContainer";
 import Post from "../Post/Post";
 
 const BlogContainer = () => {
+  // useState Hooks...........
   const [blogs, setBlogs] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const [readTime, setReadTime] = useState(0);
 
-  //useEffect for fetch data
+
+  //useEffect Hooks...........
+  //1.useEffect for fetch data
   useEffect(() => {
     fetch("FakeData.jsx")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
 
-  //useEffect to get bookmarks value
+  //2.useEffect to get bookmarks value
   useEffect(() => {
     const bookmarksObject = getBookmarksFromDB();
     let tempBookmarks = [];
@@ -36,7 +39,15 @@ const BlogContainer = () => {
     setBookmarks(tempBookmarks);
   }, [blogs]);
 
-  //set bookmarks value
+  //3.useEffect to read total reading Time from local storage
+  useEffect(() => {
+    const readTimeLS = getTimeFromDB("time");
+    setReadTime(readTimeLS);
+  }, []);
+
+
+  // Handler Functions.........
+  //1.set bookmarks value
   const handleBookmarksClick = (blog) => {
     const exists = bookmarks.find((bookmark) => bookmark.id === blog.id);
     if (exists) {
@@ -48,17 +59,15 @@ const BlogContainer = () => {
     }
   };
 
-  //useEffect to read total reading Time from local storage
-  useEffect(() => {
-    const readTimeLS = getTimeFromDB("time");
-    setReadTime(readTimeLS);
-  }, []);
-  //add time to local storage
+  
+  //2.add time to local storage
   const handleReadMoreClick = (time) => {
     const currentTime=readTime+time;
     addTimeToDB(time);
     setReadTime(currentTime);
   };
+
+  
   return (
     <div className="flex flex-col md:flex-row gap-4 px-2 lg:px-28 mt-8 relative">
       <div className="w-full md:w-4/6">

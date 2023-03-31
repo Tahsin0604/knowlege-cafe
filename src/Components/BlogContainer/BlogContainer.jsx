@@ -8,7 +8,7 @@ import {
 import TimeCounter from "../TimeCounter/TimeCounter";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import BookmarkContainer from "../BookMarkContainer/BookmarkContainer";
+import BookmarkContainer from "../BookmarkContainer/BookmarkContainer";
 import Post from "../Post/Post";
 
 const BlogContainer = () => {
@@ -82,7 +82,7 @@ const BlogContainer = () => {
       </div>
       <div className="w-full md:w-2/6 my-8 lg:pl-5 sticky top-0 h-screen overflow-y-auto">
         <TimeCounter readTime={readTime} />
-        <BookMarkContainer bookmarks={bookmarks} />
+        <BookmarkContainer bookmarks={bookmarks} />
       </div>
       <ToastContainer />
     </div>

@@ -1,71 +1,22 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark as selectRegular } from '@fortawesome/free-regular-svg-icons'
-const Blog = (props) => {
-  const { blog,handleBookmarksClick,handleReadMoreClick } = props;
-  const {
-    id,
-    authorName,
-    blogTitle,
-    blogCoverImage,
-    authorImage,
-    readTime,
-    publishDate,
-    tags
-    
-  } = blog;
-  const publishingYear=new Date(publishDate).getFullYear()===new Date().getFullYear()?null:new Date(publishDate).getFullYear();
+import React from 'react';
 
-  const publishingDate=new Date(publishDate).toLocaleDateString(undefined, {month: 'long', day: 'numeric'});
-
-  const dateDiff=new Date()-new Date(publishDate);
-  const blogPublished=Math.ceil(dateDiff/(1000*60*60*24));
-
-
+const Blog = () => {
   return (
-    <div className="py-8">
-      <img
-        src={blogCoverImage}
-        alt=""
-        className="w-full h-56 md:h-72 lg:h-96 rounded-lg shadow-xl mb-6"
-      />
-      <div className="flex justify-between items-center mx-4 mb-6 text-slate-600 font-medium flex-col md:flex-row gap-2">
-        <div className="flex w-full md:w-auto justify-start md:justify-center items-center gap-4">
-          <img
-            src={authorImage}
-            alt=""
-            className="w-14 h-14 rounded-full"
-          />
-          <div>
-            <h1>{authorName}</h1>
-            <h1>
-              <span>{publishingDate}</span> 
-              {publishingYear && <span>, {publishingYear}</span>}
-              
-              {
-                blogPublished?<span> ({blogPublished} days ago)</span>: <span> (today)</span>
-              }
-            </h1>
-
-          </div>
-        </div>
-        <div className="flex w-full md:w-auto justify-end md:justify-center items-center gap-4">
-          <h1>{readTime} min read</h1>
-          <button onClick={()=>handleBookmarksClick(blog)}><FontAwesomeIcon icon={selectRegular} /></button>
-        </div>
-      </div>
-      <h1 className="font-bold text-3xl mb-6 mx-4  text-slate-800">{blogTitle}</h1>
-      
-
-      {
-        tags ? <h1 className="text-slate-900 font-light text-lg mb-6 mx-4">
-          {tags.map((tag,index)=>
-            <span key={index}>#{tag} &nbsp;</span>)}
-        </h1>:''
-      }
-
-      <button className="mx-4 underline underline-offset-4 mb-8 font-medium text-blue-700" onClick={()=>handleReadMoreClick(id,readTime)}>Read More.....</button>
-      <hr />
+    <div className='px-2 lg:px-28 py-8'>
+      <h1 className='mb-8 text-center text-4xl text-slate-700  font-semibold underline decoration-1 decoration-slate-200 underline-offset-8'>Questions Section</h1>
+      <h1 className='mb-3 text-2xl text-slate-700  font-semibold'>1. Props vs state</h1>
+      <p className='mb-4 text-lg text-slate-600  font-semibold'>Props is not property of a component. It just used to passed from parent component to child component. <br />
+      state is the property of the component. Component can update state.</p>
+      <h1 className='mb-3 text-2xl text-slate-700  font-semibold'>2. How does useState work?</h1>
+      <p className='mb-4 text-lg text-slate-600  font-semibold'>useState hook returns an array of two variables: a current state and function to change the state. At declaration we have to give an initial value to current state. when we have to change the state we have to use the function.
+      </p>
+      <h1 className='mb-3 text-2xl text-slate-700  font-semibold'>3. Purpose of useEffect other than fetching data.</h1>
+      <p className='mb-4 text-lg text-slate-600  font-semibold'>useEffect allows us to perform side effect in our component. using dependencies we can render our app when we want to change a component or update a state</p>
+      <h1 className='mb-3 text-2xl text-slate-700  font-semibold'>4. How Does React work?</h1>
+      <p className='mb-4 text-lg text-slate-600  font-semibold'>
+      When we build a component in react babel convert it into react object.
+      React use virtual DOM to render components , by virtual dom it can identify which components it have to change using The Diffing Algorithm. So react change only those components and its child which needs to be change.
+      </p>
     </div>
   );
 };

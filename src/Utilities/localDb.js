@@ -9,9 +9,9 @@ const getBookmarksFromDB=()=>{
 }
 //add bookmarks value to local storage
 const addBookmarksToDB=(id,value)=>{
-  let valueObject=getValueFromDB("book-marks");
+  let valueObject=getBookmarksFromDB("book-marks");
   valueObject[id]=value;
-  localStorage.setItem(key,JSON.stringify(valueObject));
+  localStorage.setItem("book-marks",JSON.stringify(valueObject));
 }
 
 //get time  From local storage

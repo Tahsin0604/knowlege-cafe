@@ -2,7 +2,11 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark as selectRegular } from '@fortawesome/free-regular-svg-icons'
 const Post = (props) => {
+
+  //props destructuring..........
   const { blog,handleBookmarksClick,handleReadMoreClick } = props;
+  
+  //blog destructuring..........
   const {
     id,
     authorName,
@@ -14,10 +18,12 @@ const Post = (props) => {
     tags
     
   } = blog;
+
+  //variable for publishing Year. Shown if not current year
   const publishingYear=new Date(publishDate).getFullYear()===new Date().getFullYear()?null:new Date(publishDate).getFullYear();
-
+  //variable for publishing Date show only date and month
   const publishingDate=new Date(publishDate).toLocaleDateString(undefined, {month: 'long', day: 'numeric'});
-
+  //calculating date difference from current date
   const dateDiff=new Date()-new Date(publishDate);
   const blogPublished=Math.ceil(dateDiff/(1000*60*60*24));
 
@@ -64,7 +70,7 @@ const Post = (props) => {
         </h1>:''
       }
 
-      <button className="mx-4 underline underline-offset-4 mb-8 font-medium text-blue-700" onClick={()=>handleReadMoreClick(id,readTime)}>Read More.....</button>
+      <button className="mx-4 underline underline-offset-4 mb-8 font-medium text-blue-700" onClick={()=>handleReadMoreClick(readTime)}>Read More.....</button>
       <hr />
     </div>
   );

@@ -4,6 +4,7 @@ import { faBookmark as selectRegular } from '@fortawesome/free-regular-svg-icons
 const Blog = (props) => {
   const { blog,handleBookmarksClick,handleReadMoreClick } = props;
   const {
+    id,
     authorName,
     blogTitle,
     blogCoverImage,
@@ -52,7 +53,7 @@ const Blog = (props) => {
           <button onClick={()=>handleBookmarksClick(blog)}><FontAwesomeIcon icon={selectRegular} /></button>
         </div>
       </div>
-      <button className="mx-4 underline underline-offset-4 mb-8 font-medium text-blue-700" onClick={()=>handleReadMoreClick(readTime)}>Read More.....</button>
+      <button className="mx-4 underline underline-offset-4 mb-8 font-medium text-blue-700" onClick={()=>handleReadMoreClick(id,readTime)}>Read More.....</button>
       <hr />
     </div>
   );

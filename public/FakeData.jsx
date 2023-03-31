@@ -6,7 +6,8 @@
     "blogCoverImage":"../src/assets/image/cover-1.jpg",
     "authorImage":"../src/assets/image/user-1.jpg",
     "readTime":10,
-    "publishDate":"2023-03-31"
+    "publishDate":"2023-03-31",
+    "tags":["ai","tech"]
   },
   {
     "id":2,
@@ -15,7 +16,8 @@
     "blogCoverImage":"../src/assets/image/cover-2.jpg",
     "authorImage":"../src/assets/image/user-2.jpg",
     "readTime":15,
-    "publishDate":"2023-03-28"
+    "publishDate":"2023-03-28",
+    "tags":["ai","tech","future"]
   },
   {
     "id":3,
@@ -24,7 +26,8 @@
     "blogCoverImage":"../src/assets/image/cover-3.jpg",
     "authorImage":"../src/assets/image/user-3.jpg",
     "readTime":13,
-    "publishDate":"2023-03-29"
+    "publishDate":"2023-03-29",
+    "tags":["tech","it"]
   },
   {
     "id":4,
@@ -33,7 +36,8 @@
     "blogCoverImage":"../src/assets/image/cover-4.jpg",
     "authorImage":"../src/assets/image/user-4.jpg",
     "readTime":7,
-    "publishDate":"2022-03-25"
+    "publishDate":"2022-03-25",
+    "tags":["ai","tech","future"]
   },
   {
     "id":5,
@@ -42,7 +46,9 @@
     "blogCoverImage":"../src/assets/image/cover-5.jpg",
     "authorImage":"../src/assets/image/user-5.jpg",
     "readTime":6,
-    "publishDate":"2023-03-28"
+    "publishDate":"2023-03-28",
+    "tags":["research","science"]
+
   },
   {
     "id":6,

@@ -7,7 +7,7 @@ const TimeCounter = (props) => {
     totalTime+=readBlogs[id];
   }
   return (
-    <div className='px-8 py-8 text-center font-semibold text-2xl text-blue-700 bg-slate-100 rounded-lg'>
+    <div className='px-8 py-8 text-center font-semibold text-2xl text-blue-700 bg-slate-100 rounded-lg mr-1'>
       <h1>Spent time on read : {totalTime} min</h1>
     </div>
   );

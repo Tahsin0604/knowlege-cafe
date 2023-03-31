@@ -1,19 +1,25 @@
-const getTotalTimeFromDB=()=>{
-  let readBlog={};
-  const storageReadBlog=localStorage.getItem('total-time');
-  if(storageReadBlog){
-    readBlog=JSON.parse(storageReadBlog);
+const getValueFromDB=(key)=>{
+  let value={};
+  const storageValue=localStorage.getItem(key);
+  if(storageValue){
+    value=JSON.parse(storageValue);
   }
-  return readBlog;
+  return value;
 }
-const addTimeToDB=(id,time)=>{
-  let readBlog=getTotalTimeFromDB();
-  readBlog[id]=time;
-  console.log("adding");
-  localStorage.setItem('total-time',JSON.stringify(readBlog));
+const addValueToDB=(id,value,key)=>{
+  let valueObject=getValueFromDB(key);
+  valueObject[id]=value;
+  localStorage.setItem(key,JSON.stringify(valueObject));
 }
 
+
+// const addTimeToDB=(id,time)=>{
+//   let readBlog=getTotalTimeFromDB();
+//   readBlog[id]=time;
+//   localStorage.setItem('total-time',JSON.stringify(readBlog));
+// }
+
 export{
-  getTotalTimeFromDB,
-  addTimeToDB
+  getValueFromDB,
+  addValueToDB
 }

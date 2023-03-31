@@ -11,6 +11,7 @@ const Blog = (props) => {
     authorImage,
     readTime,
     publishDate,
+    tags
     
   } = blog;
   const publishingYear=new Date(publishDate).getFullYear()===new Date().getFullYear()?null:new Date(publishDate).getFullYear();
@@ -26,10 +27,10 @@ const Blog = (props) => {
       <img
         src={blogCoverImage}
         alt=""
-        className="w-full h-96 rounded-lg shadow-xl mb-6"
+        className="w-full h-56 md:h-72 lg:h-96 rounded-lg shadow-xl mb-6"
       />
-      <div className="flex justify-between items-center mx-4 mb-6 text-slate-600 font-medium">
-        <div className="flex justify-center items-center gap-4">
+      <div className="flex justify-between items-center mx-4 mb-6 text-slate-600 font-medium flex-col md:flex-row gap-2">
+        <div className="flex w-full md:w-auto justify-start md:justify-center items-center gap-4">
           <img
             src={authorImage}
             alt=""
@@ -48,11 +49,21 @@ const Blog = (props) => {
 
           </div>
         </div>
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex w-full md:w-auto justify-end md:justify-center items-center gap-4">
           <h1>{readTime} min read</h1>
           <button onClick={()=>handleBookmarksClick(blog)}><FontAwesomeIcon icon={selectRegular} /></button>
         </div>
       </div>
+      <h1 className="font-bold text-3xl mb-6 mx-4  text-slate-800">{blogTitle}</h1>
+      
+
+      {
+        tags ? <h1 className="text-slate-900 font-light text-lg mb-6 mx-4">
+          {tags.map((tag,index)=>
+            <span key={index}>#{tag} &nbsp;</span>)}
+        </h1>:''
+      }
+
       <button className="mx-4 underline underline-offset-4 mb-8 font-medium text-blue-700" onClick={()=>handleReadMoreClick(id,readTime)}>Read More.....</button>
       <hr />
     </div>
